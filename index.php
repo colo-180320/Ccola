@@ -7,10 +7,22 @@
  * 2.加载函数库
  * 3.启动框架
  */
-define('Cola',realpath('/'));
-var_dump(Cola);
-?>
+//当前框架所在的目录：
+define('ROOT_PATH',realpath(dirname(__FILE__)));
+//框架的核心文件的目录：
+define('CORE',ROOT_PATH.'/core');
+//框架的项目目录：
+define('APP',ROOT_PATH.'/app');
+//debug是否开启：
+define('DEBUG',true);
+if(DEBUG){
+    ini_set('display_errors','On');
+}else {
+    ini_set('display_errors','Off');
+}
+var_dump(ROOT_PATH);
 
+?>
 
 
 
