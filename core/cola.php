@@ -15,7 +15,7 @@ class cola
         echo "Hello World";
         //只是new \core\route() 却没有include这个文件会报错
         $route = new \core\lib\route();
-        $route->index();
+        var_dump($route);
     }
 
     /*
