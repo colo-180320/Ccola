@@ -8,5 +8,8 @@
 namespace app\Index\Controller;
 class IndexController
 {
-
+    public function index()
+    {
+        
+    }
 }

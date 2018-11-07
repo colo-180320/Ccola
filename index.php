@@ -15,6 +15,8 @@ define('CORE',ROOT_PATH.'/core');
 define('APP',ROOT_PATH.'/app');
 //debug是否开启：
 define('DEBUG',true);
+//加载配置：
+include ROOT_PATH.'/config/config.php';
 if(DEBUG){
     ini_set('display_errors','On');
 }else {
