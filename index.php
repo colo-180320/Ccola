@@ -25,8 +25,8 @@ if(DEBUG){
 include CORE.'/cola.php';
 
 //当new一个不存在的类，触发某个方法：
-spl_autoload_register('\core\cola::load');
-\core\cola::run();
+spl_autoload_register('\core\lib\cola::load');
+\core\lib\cola::run();
 ?>
 
 

@@ -5,14 +5,17 @@
  * Date: 2018/11/5
  * Time: 19:52
  */
-namespace core;
-
-use app\Index\Controller\IndexController;
-
+namespace core\lib;
 class cola
 {
+    protected $view;
     public static $classMap = array();
+    public function __construct()
+    {
+        $this->view = new \core\lib\view();
+    }
 
+    //执行（简单化路由）
     static public function run()
     {
         echo "Hello World";
@@ -25,16 +28,21 @@ class cola
         if (is_file($controllerFile)) {
             include $controllerFile;
             $controllerClass = "app".'\\'."Index".'\\'."Controller".'\\'.$controller;
-            new $controllerClass();
-
+            //实例化控制器：
+            $ctrl =new $controllerClass();
+            //执行action:
+            $ctrl->$action();
         } else {
             throw new \ErrorException("找不到该控制器" . $controller);
         }
     }
 
-    /*
-     * $class object 需要new的对象
-     * */
+    /**
+     * 自动加载
+     * @access static
+     * @param  mixed $class   要引入的文件的class
+     * @return $file
+     */
     static public function load($class)
     {
         //自动加载类库：
@@ -59,5 +67,22 @@ class cola
             }
         }
 
+    }
+    /**
+     * 模板变量赋值
+     * @access protected
+     * @param  mixed $name  要显示的模板变量
+     * @param  mixed $value 变量的值
+     * @return $this
+     */
+    protected function assign($name,$value='')
+    {
+        $this->view->assign($name, $value);
+        return $this;
+    }
+    //视图部分[视图输出部分]：
+    protected function display($file = '')
+    {
+        $this->view->display($file = '');
     }
 }

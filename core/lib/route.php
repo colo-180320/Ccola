@@ -26,10 +26,10 @@ class route
                 $this->controller = $pathArr['0'];
                 unset($pathArr['0']);
             }else{
-                $this->controller = "index";
+                $this->controller = "Index";
             }
             if(isset($pathArr['1'])){
-                $this->action = $pathArr['1'];
+                $this->action = $pathArr['1']."Action";
                 unset($pathArr['1']);
             }else{
                 $this->action = "index";
@@ -46,7 +46,7 @@ class route
             }
             var_dump($_GET);
         }else{
-            $this->controller = "index";
+            $this->controller = "Index";
             $this->action = "index";
         }
 
