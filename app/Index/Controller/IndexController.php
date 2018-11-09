@@ -17,15 +17,12 @@ class IndexController extends \core\lib\cola
     }
     public function viewAction()
     {
-        $data = "Hello Worlds";
         //参数部分：
         $this->assign([
             'name' => 'jiang',
             'pass' => '123456'
         ]);
-        var_dump($this);
-     //   $this->display('index');
         //调用那个视图(默认为当前控制器的方法的视图)：
-        $this->display();
+        $this->display('index.index');
     }
 }

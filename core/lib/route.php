@@ -44,15 +44,10 @@ class route
                 }
                 $i = $i+2;
             }
-            var_dump($_GET);
         }else{
             $this->controller = "Index";
             $this->action = "index";
         }
 
-    }
-    public function index()
-    {
-        echo "index";
     }
 }

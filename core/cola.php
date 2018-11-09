@@ -15,10 +15,11 @@ class cola
         $this->view = new \core\lib\view();
     }
 
-    //执行（简单化路由）
+    /*
+     * 项目初始化：
+     * */
     static public function run()
     {
-        echo "Hello World";
         //只是new \core\route() 却没有include这个文件会报错
         $route = new \core\lib\route();
         //获取控制器名跟方法名：
@@ -80,9 +81,14 @@ class cola
         $this->view->assign($name, $value);
         return $this;
     }
-    //视图部分[视图输出部分]：
-    protected function display($file = '')
+    /**
+     * 模板渲染
+     * @access protected
+     * @param  mixed $file  文件模板路径
+     * @return $file
+     */
+    protected function display($file= '')
     {
-        $this->view->display($file = '');
+        $this->view->display($file);
     }
 }
