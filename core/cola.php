@@ -91,4 +91,9 @@ class cola
     {
         $this->view->display($file);
     }
+    //变量以及模板渲染同时：
+    protected function fetch()
+    {
+
+    }
 }
