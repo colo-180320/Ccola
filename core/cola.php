@@ -24,7 +24,7 @@ class cola
         $route = new \core\lib\route();
         //获取控制器名跟方法名：
         $controller = ucfirst($route->controller . "Controller");
-        $action = $route->action;
+        $action = $route->action."Action";
         $controllerFile = APP . '/' . 'Index' . '/' . 'Controller/' . $controller . '.php';
         if (is_file($controllerFile)) {
             include $controllerFile;
