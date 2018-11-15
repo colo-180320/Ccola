@@ -5,14 +5,18 @@
  * Date: 2018/11/5
  * Time: 19:52
  */
-namespace core\lib;
+namespace core;
+//use core\lib\config;
+
 class cola
 {
     protected $view;
+//    protected $config;
     public static $classMap = array();
     public function __construct()
     {
         $this->view = new \core\lib\view();
+//        $this->config = new \core\lib\config();
     }
 
     /*
@@ -22,6 +26,9 @@ class cola
     {
         //只是new \core\route() 却没有include这个文件会报错
         $route = new \core\lib\route();
+        //配置文件加载
+        $config = new \core\lib\config();
+        
         //获取控制器名跟方法名：
         $controller = ucfirst($route->controller . "Controller");
         $action = $route->action."Action";
@@ -56,6 +63,7 @@ class cola
         if (isset($_COOKIE[$class])) {
             $file = ROOT_PATH . '/' . $_COOKIE[$class] . '.php';
             include $file;
+            //这里需要后续完善下
         } else {
             $file = ROOT_PATH . '/' . $class . '.php';
             //文件是否存在：

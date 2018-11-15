@@ -6,18 +6,22 @@
  * Time: 19:56
  */
 namespace core\lib;
-class route
+class route extends config
 {
     public $controller;
     public $action;
+
     public function __construct()
     {
+        //配置化加载：
+        $config = config::init();
         /*
          * 1.隐藏index.php  由.htaccess 文件处理
          * 2.获取URL 参数部分 全局变量$_SERVER处理
          * 3.返回对应控制器和方法
          * */
         if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/'){
+
             //接收到路径,去掉第一个"/"
             $path = trim($_SERVER['REQUEST_URI'],'/');
             //以"/" 为分隔符切割数组：
@@ -26,13 +30,13 @@ class route
                 $this->controller = $pathArr['0'];
                 unset($pathArr['0']);
             }else{
-                $this->controller = "Index";
+                $this->controller = $config['app_controller'];
             }
             if(isset($pathArr['1'])){
                 $this->action = $pathArr['1']."Action";
                 unset($pathArr['1']);
             }else{
-                $this->action = "index";
+                $this->action = $config['app_action'];
             }
             //URL多余部分为参数：(目前只有单斜杠的参数)
             //http://127.0.0.1/index/index/id/1/name/你好
@@ -45,8 +49,8 @@ class route
                 $i = $i+2;
             }
         }else{
-            $this->controller = "Index";
-            $this->action = "index";
+            $this->controller = $config['app_controller'];
+            $this->action = $config['app_action'];
         }
 
     }

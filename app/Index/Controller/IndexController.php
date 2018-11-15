@@ -6,7 +6,7 @@
  * Time: 15:22
  */
 namespace app\Index\Controller;
-class IndexController extends \core\lib\cola
+class IndexController extends \core\cola
 {
     public function indexAction()
     {
