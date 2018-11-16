@@ -15,15 +15,7 @@ define('CORE',ROOT_PATH.'/core');
 define('APP',ROOT_PATH.'/app');
 //debug是否开启：
 define('DEBUG',true);
-if(DEBUG){
-    ini_set('display_errors','On');
-}else {
-    ini_set('display_errors','Off');
-}
 include CORE.'/cola.php';
-
-//当new一个不存在的类，触发某个方法：
-spl_autoload_register('\core\cola::load');
 \core\cola::run();
 ?>
 

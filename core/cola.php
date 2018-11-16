@@ -11,12 +11,10 @@ namespace core;
 class cola
 {
     protected $view;
-//    protected $config;
     public static $classMap = array();
     public function __construct()
     {
         $this->view = new \core\lib\view();
-//        $this->config = new \core\lib\config();
     }
 
     /*
@@ -24,18 +22,26 @@ class cola
      * */
     static public function run()
     {
+
+        //当new一个不存在的类，触发某个方法：
+        spl_autoload_register('\core\cola::load');
         //只是new \core\route() 却没有include这个文件会报错
         $route = new \core\lib\route();
         //配置文件加载
         $config = new \core\lib\config();
-        
-        //获取控制器名跟方法名：
+        if(DEBUG){
+            ini_set('display_errors','On');
+        }else {
+            ini_set('display_errors','Off');
+        }
+        //获取模块，控制器名跟方法名：
+        $modular = ucfirst($route->modular);
         $controller = ucfirst($route->controller . "Controller");
         $action = $route->action."Action";
-        $controllerFile = APP . '/' . 'Index' . '/' . 'Controller/' . $controller . '.php';
+        $controllerFile = APP . '/' . $modular . '/' . 'Controller/' . $controller . '.php';
         if (is_file($controllerFile)) {
             include $controllerFile;
-            $controllerClass = "app".'\\'."Index".'\\'."Controller".'\\'.$controller;
+            $controllerClass = "app".'\\'.$modular.'\\'."Controller".'\\'.$controller;
             //实例化控制器：
             $ctrl =new $controllerClass();
             //执行action:
@@ -63,6 +69,7 @@ class cola
         if (isset($_COOKIE[$class])) {
             $file = ROOT_PATH . '/' . $_COOKIE[$class] . '.php';
             include $file;
+//            return true;
             //这里需要后续完善下
         } else {
             $file = ROOT_PATH . '/' . $class . '.php';

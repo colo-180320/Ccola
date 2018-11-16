@@ -8,6 +8,7 @@
 namespace core\lib;
 class route extends config
 {
+    public $modular;
     public $controller;
     public $action;
 
@@ -25,30 +26,41 @@ class route extends config
             //接收到路径,去掉第一个"/"
             $path = trim($_SERVER['REQUEST_URI'],'/');
             //以"/" 为分隔符切割数组：
-            $pathArr = explode('/',$path);
-            if(isset($pathArr['0'])){
-                $this->controller = $pathArr['0'];
-                unset($pathArr['0']);
-            }else{
-                $this->controller = $config['app_controller'];
-            }
-            if(isset($pathArr['1'])){
-                $this->action = $pathArr['1']."Action";
-                unset($pathArr['1']);
-            }else{
-                $this->action = $config['app_action'];
-            }
-            //URL多余部分为参数：(目前只有单斜杠的参数)
-            //http://127.0.0.1/index/index/id/1/name/你好
-            $count = count($pathArr)+2;
-            $i = 2;
-            while ($i<$count){
-                if(isset($pathArr[$i + 1])){
-                    $_GET[$pathArr[$i]] = $pathArr[$i+1];
+            $path = explode('?',$path);
+            //数组1：路径
+            //数组2：全部的参数
+            $pathArr = explode('/',$path['0']);
+//            $pathArrPase = explode('/',$path['1']);  //这块后续优化下，目前还没有到处理参数的部分
+            if(count($pathArr) > 2){
+                // /admin/index/view
+                $this->modular = $pathArr['0'];
+                if(isset($pathArr['1'])){
+                    $this->controller = $pathArr['1'];
+                }else{
+                    $this->controller = $config['app_controller'];
                 }
-                $i = $i+2;
+                if(isset($pathArr['2'])){
+                    $this->action = $pathArr['2'];
+                }else{
+                    $this->action = $config['app_action'];
+                }
+            }else{
+                // /index/view
+                $this->modular = $config['app_module'];
+                if(isset($pathArr['0'])){
+                    $this->controller = $pathArr['0'];
+                }else{
+                    $this->controller = $config['app_controller'];
+                }
+                if(isset($pathArr['1'])){
+                    $this->action = $pathArr['1'];
+                }else{
+                    $this->action = $config['app_action'];
+                }
             }
+
         }else{
+            $this->modular = $config['app_module'];
             $this->controller = $config['app_controller'];
             $this->action = $config['app_action'];
         }
