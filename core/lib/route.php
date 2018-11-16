@@ -6,6 +6,7 @@
  * Time: 19:56
  */
 namespace core\lib;
+//整个路由需要兼容下
 class route extends config
 {
     public $modular;
@@ -30,7 +31,8 @@ class route extends config
             //数组1：路径
             //数组2：全部的参数
             $pathArr = explode('/',$path['0']);
-//            $pathArrPase = explode('/',$path['1']);  //这块后续优化下，目前还没有到处理参数的部分
+            //这块后续优化下，目前还没有到处理参数的部分
+            //$pathArrPase = explode('/',$path['1']);
             if(count($pathArr) > 2){
                 // /admin/index/view
                 $this->modular = $pathArr['0'];
@@ -46,6 +48,7 @@ class route extends config
                 }
             }else{
                 // /index/view
+                var_dump($pathArr);
                 $this->modular = $config['app_module'];
                 if(isset($pathArr['0'])){
                     $this->controller = $pathArr['0'];
