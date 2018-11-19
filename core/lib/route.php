@@ -16,14 +16,13 @@ class route extends config
     public function __construct()
     {
         //配置化加载：
-        $config = config::init();
+        $config = config::init('default');
         /*
          * 1.隐藏index.php  由.htaccess 文件处理
          * 2.获取URL 参数部分 全局变量$_SERVER处理
          * 3.返回对应控制器和方法
          * */
         if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/'){
-
             //接收到路径,去掉第一个"/"
             $path = trim($_SERVER['REQUEST_URI'],'/');
             //以"/" 为分隔符切割数组：

@@ -29,6 +29,7 @@ class cola
         $route = new \core\lib\route();
         //配置文件加载
         $config = new \core\lib\config();
+        $config = $config::init('default');
         if(DEBUG){
             ini_set('display_errors','On');
         }else {
@@ -41,7 +42,7 @@ class cola
         $controllerFile = APP . '/' . $modular . '/' . 'Controller/' . $controller . '.php';
         if (is_file($controllerFile)) {
             include $controllerFile;
-            $controllerClass = "app".'\\'.$modular.'\\'."Controller".'\\'.$controller;
+            $controllerClass = $config['app_file'].'\\'.$modular.'\\'."Controller".'\\'.$controller;
             //实例化控制器：
             $ctrl =new $controllerClass();
             //执行action:

@@ -17,18 +17,23 @@ class config
          * 3.缓存配置数据
          * */
         $path = ROOT_PATH.'/config/'."config.php";
-        if(is_file($path)){
-            $conf = include $path;
-            //加载对于的文件：
-            if(empty($name)){
-                //直接加载对应的配置
-                return $conf;
-            }else{
-                //多一级别寻找：
-                return $conf[$name];
-            }
+        if(isset(self::$conf[$name])){
+            return self::$conf[$name];
         }else{
-            throw new \ErrorException("配置文件不存在");
+            if(is_file($path)){
+                $conf = include $path;
+                //加载对于的文件：
+                if(isset($conf[$name])){
+                    //缓存：
+                    self::$conf[$name] = $conf[$name];
+                    //直接加载对应的配置
+                    return $conf[$name];
+                }else{
+                    throw new \ErrorException("没有这项配置");
+                }
+            }else{
+                throw new \ErrorException("配置文件不存在");
+            }
         }
     }
 }
