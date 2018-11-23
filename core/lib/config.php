@@ -17,6 +17,9 @@ class config
          * 3.缓存配置数据
          * */
         $path = ROOT_PATH.'/config/'."config.php";
+        if(empty($name)){
+            $name = "default";
+        }
         if(isset(self::$conf[$name])){
             return self::$conf[$name];
         }else{

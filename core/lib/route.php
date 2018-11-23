@@ -7,6 +7,8 @@
  */
 namespace core\lib;
 //整个路由需要兼容下
+//use core\lib\log\file;
+
 class route extends config
 {
     public $modular;
@@ -16,7 +18,7 @@ class route extends config
     public function __construct()
     {
         //配置化加载：
-        $config = config::init('default');
+        $config = config::init();
         /*
          * 1.隐藏index.php  由.htaccess 文件处理
          * 2.获取URL 参数部分 全局变量$_SERVER处理

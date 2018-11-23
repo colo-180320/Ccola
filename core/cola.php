@@ -6,15 +6,17 @@
  * Time: 19:52
  */
 namespace core;
-//use core\lib\config;
-
+use core\lib\log\driver\file;
+use core\lib\route;
+use core\lib\view;
+use core\lib\config;
 class cola
 {
     protected $view;
     public static $classMap = array();
     public function __construct()
     {
-        $this->view = new \core\lib\view();
+        $this->view = new view();
     }
 
     /*
@@ -26,11 +28,12 @@ class cola
         //当new一个不存在的类，触发某个方法：
         spl_autoload_register('\core\cola::load');
         //只是new \core\route() 却没有include这个文件会报错
-        $route = new \core\lib\route();
+        $route = new route();
         //配置文件加载
-        $config = new \core\lib\config();
-        $config = $config::init('default');
-        if(DEBUG){
+        $config = new config();
+        $file = new file();
+        $config = $config::init();
+        if($config['is_bug']){
             ini_set('display_errors','On');
         }else {
             ini_set('display_errors','Off');
@@ -70,7 +73,6 @@ class cola
         if (isset($_COOKIE[$class])) {
             $file = ROOT_PATH . '/' . $_COOKIE[$class] . '.php';
             include $file;
-//            return true;
             //这里需要后续完善下
         } else {
             $file = ROOT_PATH . '/' . $class . '.php';
@@ -110,6 +112,6 @@ class cola
     //变量以及模板渲染同时：
     protected function fetch()
     {
-
+        //这里后续更新
     }
 }
