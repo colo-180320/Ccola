@@ -6,9 +6,9 @@
  * Time: 14:43
  */
 namespace core\lib\log\driver;
-use core\lib\config;
+use core\lib\Config;
 
-class file extends config
+class File extends Config
 {
     //日志最大存储：
     protected $config = array();
@@ -23,7 +23,7 @@ class file extends config
      * */
     public function __construct()
     {
-        $config = config::init('log');
+        $config = Config::init('log');
         //文件大小：
         $this->config['size'] = $config['size'];
         //文件路径：

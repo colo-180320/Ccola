@@ -5,7 +5,7 @@
  * Date: 2018/11/5
  * Time: 17:34
  */
-function error($var)
+function Error($var)
 {
     if(is_bool($var)){
         var_dump($var);

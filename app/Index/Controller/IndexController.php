@@ -6,11 +6,13 @@
  * Time: 15:22
  */
 namespace app\Index\Controller;
-class IndexController extends \core\cola
+use core\Cola;
+use core\lib\Model;
+class IndexController extends Cola
 {
     public function indexAction()
     {
-        $model = new \core\lib\model();
+        $model = new Model();
         $sql ="select * from Cola_user";
         $result = $model->query($sql);
         print_r($result->fetch());

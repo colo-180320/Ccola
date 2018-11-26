@@ -7,7 +7,7 @@
  */
 namespace core\lib;
 //数据库部分：
-class model extends \PDO
+class Model extends \PDO
 {
     public function __construct()
     {

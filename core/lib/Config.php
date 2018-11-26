@@ -6,7 +6,7 @@
  * Time: 12:13
  */
 namespace core\lib;
-class config
+class Config
 {
     static public $conf = array();
     static public function init($name ='')
@@ -16,7 +16,7 @@ class config
          * 2.判断配置是否存在
          * 3.缓存配置数据
          * */
-        $path = ROOT_PATH.'/config/'."config.php";
+        $path = ROOT_PATH.'/config/'."Config.php";
         if(empty($name)){
             $name = "default";
         }

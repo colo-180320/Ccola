@@ -6,7 +6,7 @@
  * Time: 14:43
  */
 namespace core\lib\log;
-class mysql
+class Mysql
 {
     //数据库日志：
 }

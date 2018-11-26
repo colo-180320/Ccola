@@ -7,7 +7,7 @@
  */
 namespace core\lib;
 //整个路由需要兼容下
-class route extends config
+class Route extends Config
 {
     public $modular;
     public $controller;
@@ -16,7 +16,7 @@ class route extends config
     public function __construct()
     {
         //配置化加载：
-        $config = config::init();
+        $config = Config::init();
         /*
          * 1.隐藏index.php  由.htaccess 文件处理
          * 2.获取URL 参数部分 全局变量$_SERVER处理
@@ -47,7 +47,7 @@ class route extends config
                 }
             }else{
                 // /index/view
-                var_dump($pathArr);
+                // var_dump($pathArr);
                 $this->modular = $config['app_module'];
                 if(isset($pathArr['0'])){
                     $this->controller = $pathArr['0'];

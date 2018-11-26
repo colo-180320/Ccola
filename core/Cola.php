@@ -6,19 +6,19 @@
  * Time: 19:52
  */
 namespace core;
-include "base.php";
-use core\lib\route;
-use core\lib\view;
-use core\lib\config;
+include "Base.php";
+use core\lib\Route;
+use core\lib\View;
+use core\lib\Config;
 //use core\base;
-class cola extends base
+class Cola extends Base
 {
     protected $view;
     static public $classMap = array();
     public function __construct()
     {
         parent::__construct();
-        $this->view = new view();
+        $this->view = new View();
     }
 
     /*
@@ -29,9 +29,9 @@ class cola extends base
         //当new一个不存在的类，触发某个方法：
         spl_autoload_register('\core\cola::load');
         //只是new \core\route() 却没有include这个文件会报错
-        $route = new route();
+        $route = new Route();
         //配置文件加载
-        $config = new config();
+        $config = new Config();
         $config = $config::init();
         if($config['is_bug']){
             ini_set('display_errors','On');
@@ -69,8 +69,8 @@ class cola extends base
     {
         //自动加载类库：
         //new \core\route();
-        //$class = '\core\route';
-        //ROOT_PATH.'/core/route.php';
+        //$class = '\core\Route';
+        //ROOT_PATH.'/core/Route.php';
         //第一步：是否引入过：
         //第二步：反斜线转成正斜线：
         $class = str_replace('\\', '/', $class);

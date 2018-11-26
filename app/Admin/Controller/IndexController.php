@@ -6,12 +6,14 @@
  * Time: 15:22
  */
 namespace app\Admin\Controller;
-use core\cola;
-class IndexController extends cola
+use core\Cola;
+use app\Admin\Model\IndexModel;
+use core\lib\Model;
+class IndexController extends Cola
 {
     public function indexAction()
     {
-        $model = new \core\lib\model();
+        $model = new Model();
         $sql ="select * from Cola_user";
         $result = $model->query($sql);
         print_r($result->fetch());
@@ -25,7 +27,6 @@ class IndexController extends cola
         ]);
         //调用那个视图(默认为当前控制器的方法的视图)：
         $this->display('index.index');
-        $k = $this->add();
     }
 
 }
