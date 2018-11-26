@@ -8,3 +8,5 @@ header("Content-type:text/html;charset=utf-8");
  * Time: 15:52
  */
 echo "这里是视图~";
+//输出
+dump($_SERVER);

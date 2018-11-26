@@ -13,8 +13,7 @@ define('ROOT_PATH',realpath(dirname(__FILE__)));
 define('CORE',ROOT_PATH.'/core');
 //框架的项目目录：
 define('APP',ROOT_PATH.'/app');
-//debug是否开启：
-define('DEBUG',true);
+include "vendor/autoload.php";
 include CORE . '/Cola.php';
 \core\cola::run();
 ?>

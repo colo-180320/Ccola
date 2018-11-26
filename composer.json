@@ -1,0 +1,20 @@
+{
+  "name" : "Cola PHP",
+  "description" : "PHP Framework",
+  "type":"Framework",
+  "keywords":[
+    "PHP","PHP Framework"
+  ],
+  "authors": [
+    {
+      "name": "cola",
+      "email": "cola@qq.com",
+      "homepage": "https://github.com/colo-180320"
+    }
+  ],
+  "require":{
+    "php":">=5.3.0",
+    "filp/whoops":"*",
+    "symfony/var-dumper":"*"
+  }
+}

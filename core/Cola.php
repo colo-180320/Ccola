@@ -10,6 +10,9 @@ include "Base.php";
 use core\lib\Route;
 use core\lib\View;
 use core\lib\Config;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
+
 //use core\base;
 class Cola extends Base
 {
@@ -34,6 +37,9 @@ class Cola extends Base
         $config = new Config();
         $config = $config::init();
         if($config['is_bug']){
+            $whoops = new Run();
+            $whoops->pushHandler(new PrettyPageHandler());
+            $whoops->register();
             ini_set('display_errors','On');
         }else {
             ini_set('display_errors','Off');
