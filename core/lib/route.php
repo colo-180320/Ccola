@@ -7,8 +7,6 @@
  */
 namespace core\lib;
 //整个路由需要兼容下
-//use core\lib\log\file;
-
 class route extends config
 {
     public $modular;

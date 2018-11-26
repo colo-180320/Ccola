@@ -11,7 +11,7 @@ return [
         'is_bug' => 'true',             //是否开启debug:
         //控制器部分：
         'app_file' => 'app',            //自定义应用目录
-        'app_module' => 'admin',        //自定义访问模块
+        'app_module' => 'index',        //自定义访问模块
         'app_controller' => "index",    //自定义访问控制器
         'app_action' => "index",        //自定义访问方法
         'work_environment' => "Home",   //自定义工作环境 Home,Work

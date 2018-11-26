@@ -6,16 +6,18 @@
  * Time: 19:52
  */
 namespace core;
-use core\lib\log\driver\file;
+include "base.php";
 use core\lib\route;
 use core\lib\view;
 use core\lib\config;
-class cola
+//use core\base;
+class cola extends base
 {
     protected $view;
-    public static $classMap = array();
+    static public $classMap = array();
     public function __construct()
     {
+        parent::__construct();
         $this->view = new view();
     }
 
@@ -24,14 +26,12 @@ class cola
      * */
     static public function run()
     {
-
         //当new一个不存在的类，触发某个方法：
         spl_autoload_register('\core\cola::load');
         //只是new \core\route() 却没有include这个文件会报错
         $route = new route();
         //配置文件加载
         $config = new config();
-        $file = new file();
         $config = $config::init();
         if($config['is_bug']){
             ini_set('display_errors','On');
@@ -48,8 +48,12 @@ class cola
             $controllerClass = $config['app_file'].'\\'.$modular.'\\'."Controller".'\\'.$controller;
             //实例化控制器：
             $ctrl =new $controllerClass();
-            //执行action:
-            $ctrl->$action();
+            if(!method_exists($ctrl,$action)){
+                throw new \ErrorException("找不到该方法" . $action);
+            }else{
+                //action:
+                $ctrl->$action();
+            }
         } else {
             throw new \ErrorException("找不到该控制器" . $controller);
         }

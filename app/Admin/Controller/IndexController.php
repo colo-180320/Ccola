@@ -6,7 +6,8 @@
  * Time: 15:22
  */
 namespace app\Admin\Controller;
-class IndexController extends \core\cola
+use core\cola;
+class IndexController extends cola
 {
     public function indexAction()
     {
@@ -24,6 +25,7 @@ class IndexController extends \core\cola
         ]);
         //调用那个视图(默认为当前控制器的方法的视图)：
         $this->display('index.index');
-
+        $k = $this->add();
     }
+
 }
