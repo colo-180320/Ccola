@@ -6,7 +6,16 @@
  * Time: 16:21
  */
 namespace core;
-class ColaModel
+use Medoo\Medoo;
+use core\lib\Config;
+
+class ColaModel extends Medoo
 {
+    protected $config;
+    public function __construct($options)
+    {
+        $this->config = Config::init($options);
+        parent::__construct($this->config);
+    }
 
 }

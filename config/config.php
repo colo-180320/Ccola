@@ -25,30 +25,30 @@ return [
         // 日志文件存储最大值
         'size'  => '2097152'
     ],
-    // 各项目的数据库
+    // 主要数据库
     'db' => [
-        'host' => 'localhost',
-        'port' => 3313,
-        'user' => 'root',
-        'dbname' => 'app', // 数据库名为项目名称,在service\App类中指定
-        'charset' => 'utf8mb4',
-        'password' => 'H3zhw.2017_zhw.ADmin8,Q69',
-        'recordClass' => 'miaoxing\plugin\BaseModel',
-        'beforeQuery' => ['Miaoxing\App\Callback\Db', 'beforeQuery'],
+        'database_type'=>'mysql',
+        'server' => 'localhost',
+        'port' => 3306,
+        'username' => 'root',
+        'prefix' => 'cola_',
+        'database_name' => 'dbTests', // 数据库名为项目名称,在service\App类中指定
+        'charset' => 'utf8',
+        'password' => 'root',
         'providers' => [
             'cache' => 'nearCache',
         ],
     ],
-    // 产品核心的数据库
+    // 另外一个
     'app.db' => [
-        'host' => 'localhost',
-        'port' => 3313,
-        'user' => 'root',
-        'dbname' => 'app',
-        'charset' => 'utf8mb4',
-        'password' => 'H3zhw.2017_zhw.ADmin8,Q69',
-        'recordClass' => 'miaoxing\plugin\BaseModel',
-        'beforeQuery' => ['Miaoxing\App\Callback\Db', 'beforeQuery'],
+        'database_type'=>'mysql',
+        'server' => 'localhost',
+        'port' => 3306,
+        'username' => 'root',
+        'prefix' => 'cola_',
+        'database_name' => 'dbTest', // 数据库名为项目名称,在service\App类中指定
+        'charset' => 'utf8',
+        'password' => 'root',
         'providers' => [
             'cache' => 'nearCache',
         ],

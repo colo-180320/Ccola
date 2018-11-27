@@ -12,14 +12,13 @@ use core\lib\View;
 use core\lib\Config;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
-
-//use core\base;
 class Cola extends Base
 {
     protected $view;
     static public $classMap = array();
     public function __construct()
     {
+        //这里后续做中间件！
         parent::__construct();
         $this->view = new View();
     }

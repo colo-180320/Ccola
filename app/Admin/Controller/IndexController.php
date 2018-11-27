@@ -6,18 +6,32 @@
  * Time: 15:22
  */
 namespace app\Admin\Controller;
+
 use core\Cola;
 use app\Admin\Model\IndexModel;
-use core\lib\Model;
+
 class IndexController extends Cola
 {
+    protected $model;
+    protected $controllerName = '企业信息展示';
+    protected $actionPermissions = [
+        'index' => '列表',
+        'new,create' => '添加',
+        'update' => '编辑',
+        'show' => '查看详情',
+    ];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->model = new IndexModel();
+    }
+
     public function indexAction()
     {
-        $model = new Model();
-        $sql ="select * from Cola_user";
-        $result = $model->query($sql);
-        print_r($result->fetch());
+        dump($this->model->getList());
     }
+
     public function viewAction()
     {
         //参数部分：

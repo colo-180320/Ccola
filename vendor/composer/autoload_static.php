@@ -9,6 +9,7 @@ class ComposerStaticInitaadf339dfa1d1d9f58f321fdaa413798
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        'ea6c6ca82c7cfd0c0bf52bd926c101fc' => __DIR__ . '/..' . '/joseph-lenton/php-error/src/php_error.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,6 +25,10 @@ class ComposerStaticInitaadf339dfa1d1d9f58f321fdaa413798
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+        ),
+        'M' => 
+        array (
+            'Medoo\\' => 6,
         ),
     );
 
@@ -43,6 +48,10 @@ class ComposerStaticInitaadf339dfa1d1d9f58f321fdaa413798
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Medoo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/catfan/medoo/src',
         ),
     );
 

@@ -20,4 +20,5 @@ class base{
         $file->log("填写错误日志");
 //        var_dump($traces);
     }
+
 }
