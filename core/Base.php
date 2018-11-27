@@ -7,7 +7,7 @@
  */
 namespace core;
 use core\lib\log\driver\file;
-class base{
+class Base{
     public function __construct()
     {
 

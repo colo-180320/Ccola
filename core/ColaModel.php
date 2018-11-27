@@ -12,8 +12,11 @@ use core\lib\Config;
 class ColaModel extends Medoo
 {
     protected $config;
-    public function __construct($options)
+    public function __construct($options = '')
     {
+        if (empty($options)){
+            $options = "db";
+        }
         $this->config = Config::init($options);
         parent::__construct($this->config);
     }

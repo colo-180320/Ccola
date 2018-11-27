@@ -32,7 +32,7 @@ return [
         'port' => 3306,
         'username' => 'root',
         'prefix' => 'cola_',
-        'database_name' => 'dbTests', // 数据库名为项目名称,在service\App类中指定
+        'database_name' => 'dbTest', // 数据库名为项目名称,在service\App类中指定
         'charset' => 'utf8',
         'password' => 'root',
         'providers' => [
