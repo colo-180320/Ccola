@@ -5,6 +5,7 @@
  * Date: 2018/11/5
  * Time: 19:52
  */
+
 namespace core;
 include "Base.php";
 use core\lib\Route;
@@ -12,15 +13,18 @@ use core\lib\View;
 use core\lib\Config;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
+
 class Cola extends Base
 {
     protected $view;
+    protected $base;
     static public $classMap = array();
     public function __construct()
     {
         //这里后续做中间件！
         parent::__construct();
         $this->view = new View();
+        $this->base = new Base();
     }
 
     /*
@@ -29,7 +33,7 @@ class Cola extends Base
     static public function run()
     {
         //当new一个不存在的类，触发某个方法：
-        spl_autoload_register('\core\cola::load');
+        spl_autoload_register('\core\Base::autoLoad');
         //只是new \core\route() 却没有include这个文件会报错
         $route = new Route();
         //配置文件加载
@@ -64,38 +68,7 @@ class Cola extends Base
         }
     }
 
-    /**
-     * 自动加载
-     * @access static
-     * @param  mixed $class   要引入的文件的class
-     * @return $file
-     */
-    static public function load($class)
-    {
-        //自动加载类库：
-        //new \core\route();
-        //$class = '\core\Route';
-        //ROOT_PATH.'/core/Route.php';
-        //第一步：是否引入过：
-        //第二步：反斜线转成正斜线：
-        $class = str_replace('\\', '/', $class);
-        if (isset($_COOKIE[$class])) {
-            $file = ROOT_PATH . '/' . $_COOKIE[$class] . '.php';
-            include $file;
-            //这里需要后续完善下
-        } else {
-            $file = ROOT_PATH . '/' . $class . '.php';
-            //文件是否存在：
-            if (is_file($file)) {
-                include $file;
-                //存入classMap中：
-                setcookie($class, $class, time() + 3600);
-            } else {
-                return false;
-            }
-        }
 
-    }
     /**
      * 模板变量赋值
      * @access protected

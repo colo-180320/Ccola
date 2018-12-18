@@ -15,7 +15,7 @@ define('CORE',ROOT_PATH.'/core');
 define('APP',ROOT_PATH.'/app');
 include "vendor/autoload.php";
 include CORE . '/Cola.php';
-\core\cola::run();
+\core\Cola::run();
 ?>
 
 

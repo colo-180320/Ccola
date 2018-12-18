@@ -7,15 +7,12 @@
  */
 namespace app\Index\Controller;
 use core\Cola;
-use core\lib\Model;
+use app\Index\Model\IndexModel;
 class IndexController extends Cola
 {
     public function indexAction()
     {
-        $model = new Model();
-        $sql ="select * from Cola_user";
-        $result = $model->query($sql);
-        print_r($result->fetch());
+        echo "Hello World";
     }
     public function viewAction()
     {
