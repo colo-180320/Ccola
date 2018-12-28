@@ -10,10 +10,10 @@ class Request
     protected $pathInfo;
     protected $requestUri;
     protected $baseUrl;
+    protected $method;
     protected $server = array();
     public function __construct()
     {
-
         $this->server = $_SERVER;
     }
 
@@ -55,6 +55,14 @@ class Request
             $this->requestUri = $this->detectRequestUri();
         }
         return $this->requestUri;
+    }
+
+    public function getMethod()
+    {
+        if(null === $this->method){
+            $this->method = $this->getServer('REQUEST_METHOD','GET');
+        }
+        return $this->method;
     }
 
     protected function detectRequestUri()
