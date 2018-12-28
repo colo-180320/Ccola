@@ -6,5 +6,8 @@
  * Time: 16:18
  */
 class Redis{
-
+    public function __construct()
+    {
+        echo "ceshi";
+    }
 }
