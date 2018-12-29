@@ -41,8 +41,7 @@ class IndexController extends Cola
         ]);
 
         //调用那个视图(默认为当前控制器的方法的视图)：
-//        $k = new ccs();
-        $this->display('index.index');
+        $this->display('index');
 
     }
 
