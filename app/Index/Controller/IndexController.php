@@ -21,8 +21,9 @@ class IndexController extends Cola
             'name' => 'jiang',
             'pass' => '123456'
         ]);
+
         //调用那个视图(默认为当前控制器的方法的视图)：
-        $this->display('index.index');
+        $this->display();
 
     }
 }

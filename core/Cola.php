@@ -23,7 +23,6 @@ class Cola extends Base
     static public $classMap = array();
     public function __construct()
     {
-        //这里后续做中间件！
         parent::__construct();
         $this->view = new View();
         $this->base = new Base();

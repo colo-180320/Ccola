@@ -6,17 +6,21 @@
  * Time: 19:56
  */
 namespace core\lib;
-
 //整个路由需要兼容下
 use Request;
 
 class Route extends Config
 {
+    //前&后
     public $modular;
+    //控制器
     public $controller;
+    //方法
     public $action;
+    //控制器+方法  【后续可以用于权限部分】
     protected $route = array();
-
+    //参数
+    protected $param = array();
     public function __construct()
     {
         //request服务
@@ -30,11 +34,14 @@ class Route extends Config
     public function mathParamSet($path, $method = 'GET')
     {
         $path = trim($path, '/');
+        !$path && $path = '/';
         //配置化加载：
         $config = Config::init();
         $pathArr = explode('/', $path);
+
         if (count($pathArr) > 2) {
             $this->modular = $pathArr['0'];
+
             if (isset($pathArr['1'])) {
                 $this->controller = $pathArr['1'];
                 $this->route['controller'] = $pathArr['1'];
@@ -62,5 +69,6 @@ class Route extends Config
                 $this->action = $config['app_action'];
             }
         }
+        return true;
     }
 }
