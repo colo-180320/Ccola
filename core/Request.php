@@ -17,6 +17,11 @@ class Request
         $this->server = $_SERVER;
     }
 
+    public function __invoke()
+    {
+        return $this->getBaseUrl().'/';
+    }
+
     public function getPathInfo()
     {
         if($this->pathInfo === null){

@@ -6,3 +6,6 @@
  * Time: 10:38
  */
 echo "GOOD";
+echo $url;
+echo $controller;
+echo $action;

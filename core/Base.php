@@ -14,11 +14,7 @@ class Base{
     }
     public function __call($name, $arguments)
     {
-        $file = new file();
-        $traces = debug_backtrace();
-        //日志如何存储内容，后续完善
-        $file->log("填写错误日志");
-//        var_dump($traces);
+
     }
     /**
      * 自动加载
@@ -50,8 +46,15 @@ class Base{
                 return false;
             }
         }
-
     }
+    public function error()
+    {
+        $file = new file();
+        $traces = debug_backtrace();
+        //日志如何存储内容，后续完善
+        $file->log("调用错误的方法");
+    }
+
 
 }
 ?>

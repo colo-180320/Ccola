@@ -19,6 +19,7 @@ class view extends Route
 
     public function assign($name, $value = '')
     {
+
         if (is_array($name)) {
             $this->data = array_merge($this->data, $name);
         } else {
@@ -29,6 +30,7 @@ class view extends Route
 
     public function display($file = '')
     {
+        extract($this->data);
         $route = new Route();
         $path = $route->route;
         if (empty($file)) {
@@ -50,6 +52,7 @@ class view extends Route
                 include $file;
             } else {
                 throw new \ErrorException("视图不存在，请检查");
+
             }
         } else {
             $file = explode('.', $file);
@@ -76,5 +79,10 @@ class view extends Route
             }
 
         }
+    }
+    //加载公共的文件：
+    public function layout()
+    {
+
     }
 }

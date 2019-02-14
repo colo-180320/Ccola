@@ -8,5 +8,10 @@ header("Content-type:text/html;charset=utf-8");
  * Time: 15:52
  */
 echo "这里是视图2~";
+echo $url;
+echo $controller;
+echo $action;
+
+
 //输出
 dump($_SERVER);

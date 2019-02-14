@@ -20,5 +20,7 @@ class ColaModel extends Medoo
         $this->config = Config::init($options);
         parent::__construct($this->config);
     }
+    //数据库操作的一些方法：
+
 
 }
