@@ -30,18 +30,15 @@
                             <i class="fa fa-wrench"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="home/edit">编辑</a>
+                            <li><a href=<?php __DIR__?>"/index/home/edit" target="_self">编辑</a>
                             </li>
-                            <li><a href="home/add">新增</a>
+                            <li><a href=<?php __DIR__?>"/index/home/add" target="_self">新增</a>
                             </li>
                         </ul>
-<!--                        <a class="close-link">-->
-<!--                            <i class="fa fa-times"></i>-->
-<!--                        </a>-->
                     </div>
                 </div>
                 <div class="ibox-content ibox-heading">
-                    <h3>还有约79842492229个Bug需要修复</h3>
+                    <h3>还有约0个Bug需要修复</h3>
                     <small><i class="fa fa-map-marker"></i> 地点当然是在办公室</small>
                 </div>
                 <div class="ibox-content timeline">
@@ -61,87 +58,11 @@
 
                                 <p><span data-diameter="40" class="updating-chart">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,4,7,3,2,9,8,7,4,5,1,2,9,5,4,7,2,7,7,3,5,2</span>
                                 </p>
+                                <a href=<?php __DIR__?>"/index/home/edit" target="_self">编辑</a>
+                                <a href=<?php __DIR__?>"/index/home/delete">删除</a>
                             </div>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="row">
-                            <div class="col-xs-3 date">
-                                <i class="fa fa-file-text"></i> 7:00
-                                <br/>
-                                <small class="text-navy">3小时前</small>
-                            </div>
-                            <div class="col-xs-7 content">
-                                <p class="m-b-xs"><strong>修复了0.5个bug</strong>
-                                </p>
-                                <p>重启服务</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="row">
-                            <div class="col-xs-3 date">
-                                <i class="fa fa-coffee"></i> 8:00
-                                <br/>
-                            </div>
-                            <div class="col-xs-7 content">
-                                <p class="m-b-xs"><strong>喝水、上厕所、做测试</strong>
-                                </p>
-                                <p>
-                                    喝了4杯水，上了3次厕所，控制台输出出2324个错误，神啊，带我走吧
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="row">
-                            <div class="col-xs-3 date">
-                                <i class="fa fa-phone"></i> 11:00
-                                <br/>
-                                <small class="text-navy">21小时前</small>
-                            </div>
-                            <div class="col-xs-7 content">
-                                <p class="m-b-xs"><strong>项目经理打电话来了</strong>
-                                </p>
-                                <p>
-                                    TMD，项目经理居然还没有起床！！！
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="row">
-                            <div class="col-xs-3 date">
-                                <i class="fa fa-user-md"></i> 09:00
-                                <br/>
-                                <small>21小时前</small>
-                            </div>
-                            <div class="col-xs-7 content">
-                                <p class="m-b-xs"><strong>开会</strong>
-                                </p>
-                                <p>
-                                    开你妹的会，老子还有897894个bug没有修复
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="row">
-                            <div class="col-xs-3 date">
-                                <i class="fa fa-comments"></i> 12:50
-                                <br/>
-                                <small class="text-navy">讨论</small>
-                            </div>
-                            <div class="col-xs-7 content">
-                                <p class="m-b-xs"><strong>…………</strong>
-                                </p>
-                                <p>
-                                    又是操蛋的一天
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

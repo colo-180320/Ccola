@@ -11,7 +11,7 @@ include "Base.php";
 include "Request.php";
 use core\lib\Route;
 use core\lib\View;
-use Request;
+use core\lib\Request;
 use core\lib\Config;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;

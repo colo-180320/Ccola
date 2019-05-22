@@ -29,12 +29,7 @@ class IndexController extends Cola
 
     public function indexAction()
     {
-        $this->assign([
-            'name' => 'jiang',
-            'pass' => '123456',
-        ]);
-
-        $this->display();
+        $this->display('Index/index');
     }
 
     public function viewAction()

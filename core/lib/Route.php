@@ -7,7 +7,7 @@
  */
 namespace core\lib;
 //整个路由需要兼容下
-use Request;
+use core\lib\Request;
 
 class Route extends Config
 {
@@ -25,6 +25,7 @@ class Route extends Config
     {
         //request服务
         $request = new Request();
+//        var_dump($request);
         //获取路径： $request->getPathInfo()
         //获得方法： $request->getMethod()
         //处理路径：
@@ -33,6 +34,7 @@ class Route extends Config
 
     public function mathParamSet($path, $method = 'GET')
     {
+
         $path = trim($path, '/');
         !$path && $path = '/';
         //配置化加载：

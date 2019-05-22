@@ -7,7 +7,7 @@
  */
 namespace app\Index\Model;
 use core\ColaModel;
-class IndexModel extends ColaModel
+class WechatModel extends ColaModel
 {
     protected $table = 'user';
     protected $providers = 'db';
@@ -31,4 +31,5 @@ class IndexModel extends ColaModel
     {
         return $this->select($this->table,'*');
     }
+
 }

@@ -7,7 +7,7 @@
  */
 namespace app\Index\Model;
 use core\ColaModel;
-class WechatModel extends ColaModel
+class HomeModel extends ColaModel
 {
     protected $table = 'user';
     protected $providers = 'db';

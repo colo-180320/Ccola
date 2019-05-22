@@ -5,6 +5,7 @@
  * Date: 2018/12/27
  * Time: 10:06
  */
+namespace core\lib;
 class Request
 {
     protected $pathInfo;
@@ -17,9 +18,9 @@ class Request
         $this->server = $_SERVER;
     }
 
-    public function __invoke()
+    public function __invoke($url = '',$argsOrParams = array(), $params = array())
     {
-        return $this->getBaseUrl().'/';
+        return $this->getBaseUrl().'/'.$this->append($url,$argsOrParams,$params);
     }
 
     public function getPathInfo()
@@ -185,5 +186,16 @@ class Request
     {
         return isset($this->server[$name]) ? $this->server[$name] : $default;
     }
-
+    public function append($url='',$argsOrParams = array(),$params = array())
+    {
+        if (strpos($url,'%s') !== false){
+            $url = vsprintf($url,(array)$argsOrParams);
+        }else{
+            $params = $argsOrParams;
+        }
+        if ($params){
+            $url .= (false === strpos($url,'?') ? '?' : '&');
+        }
+        return $url . (is_array($params) ? http_build_query($params) : $params);
+    }
 }

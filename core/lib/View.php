@@ -38,7 +38,7 @@ class view extends Route
             if (isset($path['controller'])) {
                 $this->controller_file = ucfirst($route->modular);
             } else {
-                $this->controller_file = "index";
+                    $this->controller_file = "Index";
             }
             if (isset($path['action'])) {
                 $this->action_view = $path['action'];
@@ -46,12 +46,11 @@ class view extends Route
                 $this->action_view = "index";
             }
 
-            $file = APP . '/Views/' .$this->controller_file . '/' . $this->action_view . ".php";
-
+            $file = APP . '/Views/' .$this->controller_file . '/'.$this->controller_file .'/' . $this->action_view . ".php";
             if (is_file($file)) {
                 include $file;
             } else {
-                throw new \ErrorException("视图不存在，请检查");
+                throw new \ErrorException($file);
 
             }
         } else {
@@ -60,7 +59,8 @@ class view extends Route
                 //加载其他视图文件夹
                 $this->controller_file = $file['0'];
                 $this->action_view = $file['1'];
-                $file = APP . '/Views/' . $this->controller_file . '/' . $this->action_view . ".php";
+                $file = APP . '/Views/' . $this->controller_file . '/'. $this->controller_file . '/' . $this->action_view . ".php";
+
                 if (is_file($file)) {
                     include $file;
                 } else {

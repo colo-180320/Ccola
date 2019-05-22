@@ -10,7 +10,6 @@ use core\lib\log\driver\file;
 class Base{
     public function __construct()
     {
-
     }
     public function __call($name, $arguments)
     {
